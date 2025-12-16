@@ -24,7 +24,7 @@ class DDPMPipeline:
         :return:
         """
         gaussian_noise = torch.randn(images.shape).to(images.device)
-        alpha_hat = self.alphas_hat[timesteps].to(images.device)
+        alpha_hat = self.alphas_hat[timesteps.cpu()].to(images.device)
         alpha_hat = broadcast(alpha_hat, images)
 
         return torch.sqrt(alpha_hat) * images + torch.sqrt(1 - alpha_hat) * gaussian_noise, gaussian_noise

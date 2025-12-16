@@ -3,7 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-landscape_dataset/
+landscape_dataset/all_images/
+models/landscape_dataset/*.pth
+
+# UV
+uv.lock
 
 # C extensions
 *.so

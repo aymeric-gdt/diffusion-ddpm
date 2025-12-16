@@ -47,7 +47,7 @@ def main():
                                                               eta_min=1e-9)
 
     if training_config.resume:
-        checkpoint = torch.load(training_config.resume, map_location='cpu')
+        checkpoint = torch.load(training_config.resume, map_location='cpu', weights_only=False)
         model.load_state_dict(checkpoint['model'])
         optimizer.load_state_dict(checkpoint['optimizer'])
         lr_scheduler.load_state_dict(checkpoint['lr_scheduler'])
